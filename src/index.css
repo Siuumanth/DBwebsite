@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FFF8E7;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Chewy', cursive;
+  }
+}
+
+@layer components {
+  .pizza-slice {
+    @apply relative w-32 h-32 transform transition-all duration-300 hover:scale-110 hover:rotate-12;
+  }
+  
+  .pizza-slice::before {
+    content: '';
+    @apply absolute inset-0 rounded-full;
+    background: conic-gradient(from 0deg, #F4D35E 0deg 90deg, #E63946 90deg 180deg, #90BE6D 180deg 270deg, #B5651D 270deg 360deg);
+  }
+  
+  .cheese-drip {
+    @apply absolute w-2 h-8 bg-pizza-yellow rounded-full animate-bounce;
+  }
+  
+  .sparkle {
+    @apply absolute w-3 h-3 bg-pizza-yellow rounded-full animate-sparkle;
+  }
+  
+  .confetti-piece {
+    @apply absolute w-2 h-2 animate-bounce;
+  }
+  
+  .balloon {
+    @apply absolute w-8 h-12 rounded-full animate-float;
+  }
+  
+  .memory-card {
+    @apply bg-white rounded-xl shadow-lg p-4 transform transition-all duration-300 hover:scale-105 hover:rotate-2 hover:shadow-xl;
+  }
+  
+  .glow-effect {
+    @apply shadow-lg transition-all duration-300;
+  }
+  
+  .glow-effect:focus {
+    @apply shadow-pizza-yellow shadow-2xl ring-2 ring-pizza-yellow;
+  }
+}
+
+/* Custom animations */
+@keyframes cheese-drip {
+  0% { transform: translateY(-10px) scaleY(0); }
+  50% { transform: translateY(0px) scaleY(1); }
+  100% { transform: translateY(10px) scaleY(0.8); }
+}
+
+@keyframes oven-open {
+  0% { transform: perspective(1000px) rotateX(0deg); }
+  100% { transform: perspective(1000px) rotateX(-90deg); }
+}
+
+@keyframes slice-split {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(-100px, -100px) rotate(-45deg); }
+  50% { transform: translate(-200px, 0px) rotate(-90deg); }
+  75% { transform: translate(-100px, 100px) rotate(-135deg); }
+  100% { transform: translate(0, 200px) rotate(-180deg); }
+}
+
+.cheese-drip-animation {
+  animation: cheese-drip 2s ease-in-out infinite;
+}
+
+.oven-transition {
+  animation: oven-open 1s ease-in-out forwards;
+}
+
+.slice-split-animation {
+  animation: slice-split 2s ease-in-out forwards;
+}
