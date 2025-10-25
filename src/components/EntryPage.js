@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const EntryPage = ({ onSecretKeySubmit }) => {
   const [secretKey, setSecretKey] = useState('');
@@ -30,39 +30,30 @@ const EntryPage = ({ onSecretKeySubmit }) => {
       exit={{ opacity: 0 }}
       className="min-h-screen relative overflow-hidden flex items-center justify-center"
     >
-      {/* Background with pizza image and effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-pizza-red/20 to-pizza-yellow/20">
+      {/* Background with subtle pizza pattern */}
+      <div className="absolute inset-0 bg-gradient-to-br from-pizza-cream to-pizza-yellow/30">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat filter blur-sm"
+          className="absolute inset-0 opacity-20"
           style={{
-            backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><circle cx="200" cy="200" r="180" fill="%23F4D35E"/><circle cx="200" cy="200" r="160" fill="%23E63946"/><circle cx="200" cy="200" r="140" fill="%23F4D35E"/><circle cx="200" cy="200" r="120" fill="%23E63946"/><circle cx="200" cy="200" r="100" fill="%23F4D35E"/><circle cx="200" cy="200" r="80" fill="%23E63946"/><circle cx="200" cy="200" r="60" fill="%23F4D35E"/><circle cx="200" cy="200" r="40" fill="%23E63946"/><circle cx="200" cy="200" r="20" fill="%23F4D35E"/></svg>')`
+            backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="80" fill="%23F4D35E" opacity="0.3"/><circle cx="100" cy="100" r="60" fill="%23E63946" opacity="0.2"/><circle cx="100" cy="100" r="40" fill="%23F4D35E" opacity="0.3"/><circle cx="100" cy="100" r="20" fill="%23E63946" opacity="0.4"/></svg>')`,
+            backgroundSize: '300px 300px'
           }}
         />
       </div>
 
-      {/* Animated cheese drips */}
-      {[...Array(8)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="cheese-drip absolute"
+      {/* Subtle background pattern instead of cheese drips */}
+      <div className="absolute inset-0 opacity-10">
+        <div 
+          className="w-full h-full"
           style={{
-            left: `${20 + i * 10}%`,
-            top: `${10 + (i % 3) * 20}%`,
-          }}
-          animate={{
-            y: [0, 20, 0],
-            opacity: [0.7, 1, 0.7],
-          }}
-          transition={{
-            duration: 2 + i * 0.3,
-            repeat: Infinity,
-            delay: i * 0.5,
+            backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="3" fill="%23F4D35E"/><circle cx="80" cy="30" r="2" fill="%23E63946"/><circle cx="40" cy="70" r="2.5" fill="%2390BE6D"/><circle cx="70" cy="80" r="2" fill="%23B5651D"/><circle cx="10" cy="60" r="2" fill="%23F4D35E"/><circle cx="90" cy="70" r="2.5" fill="%23E63946"/></svg>')`,
+            backgroundSize: '200px 200px'
           }}
         />
-      ))}
+      </div>
 
-      {/* Sparkles */}
-      {[...Array(12)].map((_, i) => (
+      {/* Sparkles - Reduced number */}
+      {[...Array(6)].map((_, i) => (
         <motion.div
           key={i}
           className="sparkle absolute"
@@ -101,7 +92,7 @@ const EntryPage = ({ onSecretKeySubmit }) => {
             ease: "easeInOut"
           }}
         >
-          Welcome to the Secret Pizza Club 🍕✨
+          Welcome to the Secret Pizza Club Bks 🍕✨
         </motion.h1>
 
         <motion.p

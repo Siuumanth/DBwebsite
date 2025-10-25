@@ -104,7 +104,7 @@ const MainPage = ({ onPizzaClick, showMemorySection, showFinalSection, onGiftCli
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-6xl font-chewy text-pizza-red mb-4">
-            A pizza is never complete without its favorite slice — that's you! 🍕❤️
+            A pizza is never complete without its favorite slice — that's you bk! 🍕❤️
           </h1>
         </motion.div>
 

@@ -5,10 +5,10 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Generate image paths for 24 images
+  // Generate image paths for 23 images
   const generateImagePaths = () => {
     const images = [];
-    for (let i = 1; i <= 24; i++) {
+    for (let i = 1; i <= 23; i++) {
       images.push({
         id: i,
         src: `/assets/${i}.jpg`,
@@ -46,12 +46,12 @@ const Gallery = () => {
 
   return (
     <div className="w-full">
-      {/* Gallery Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      {/* Gallery Grid - Made much bigger with fewer columns for larger photos */}
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12">
         {images.map((image, index) => (
           <motion.div
             key={image.id}
-            className="relative aspect-square rounded-xl overflow-hidden cursor-pointer group"
+            className="relative aspect-square rounded-xl overflow-hidden cursor-pointer group hover:scale-105 transition-transform duration-300"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ 

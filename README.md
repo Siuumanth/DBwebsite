@@ -6,7 +6,7 @@ A fun, interactive, pizza-themed birthday surprise website with beautiful animat
 
 - **Secret Entry Page**: Password-protected entry with pizza-themed animations
 - **Interactive Pizza**: 4 animated pizza slices with unique personalities
-- **Memory Gallery**: Photo gallery with 24 image slots (numbered 1-24)
+- **Memory Gallery**: Photo gallery with 23 image slots (numbered 1-23)
 - **Confetti & Balloons**: Celebration animations and effects
 - **Responsive Design**: Works perfectly on desktop, tablet, and mobile
 - **Custom Cursor**: Pizza emoji cursor throughout the site
@@ -34,7 +34,7 @@ npm install
 
 2. Add your images to the gallery:
    - Create a `public/assets/` folder
-   - Add images numbered from `1.jpg` to `24.jpg`
+   - Add images numbered from `1.jpg` to `23.jpg`
    - The app will show placeholders for missing images
 
 3. Start the development server:
@@ -84,7 +84,7 @@ The color palette is defined in `tailwind.config.js`:
 - Body Font: Poppins (Google Fonts)
 
 ### Images
-- Add your images to `public/assets/` numbered 1-24
+- Add your images to `public/assets/` numbered 1-23
 - Supported formats: JPG, PNG, GIF, WebP
 - Placeholders will show for missing images
 
