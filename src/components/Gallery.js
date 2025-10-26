@@ -11,7 +11,7 @@ const Gallery = () => {
     for (let i = 1; i <= 23; i++) {
       images.push({
         id: i,
-        src: `/assets/${i}.jpg`,
+        src: `${process.env.PUBLIC_URL || ''}/assets/${i}.jpg`,
         alt: `Memory photo ${i}`,
         placeholder: false // Set to true if image doesn't exist
       });
@@ -67,9 +67,11 @@ const Gallery = () => {
               alt={image.alt}
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               onError={(e) => {
+                console.log('Image failed to load:', image.src);
                 e.target.style.display = 'none';
                 e.target.nextElementSibling.style.display = 'flex';
               }}
+              onLoad={() => console.log('Image loaded successfully:', image.src)}
             />
             
             {/* Fallback placeholder for missing images */}
@@ -114,9 +116,11 @@ const Gallery = () => {
                   alt={selectedImage.alt}
                   className="w-full h-auto max-h-[70vh] object-contain"
                   onError={(e) => {
+                    console.log('Modal image failed to load:', selectedImage.src);
                     e.target.style.display = 'none';
                     e.target.nextElementSibling.style.display = 'flex';
                   }}
+                  onLoad={() => console.log('Modal image loaded successfully:', selectedImage.src)}
                 />
                 
                 {/* Fallback for missing images */}

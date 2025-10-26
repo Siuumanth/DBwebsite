@@ -22,9 +22,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Assets
-/public/assets/*.jpg
-/public/assets/*.jpeg
-/public/assets/*.png
-/public/assets/*.gif
-/public/assets/*.webp
+# Note: Assets are now included in deployment
+# Remove the following lines to include images in git:
+# /public/assets/*.jpg
+# /public/assets/*.jpeg
+# /public/assets/*.png
+# /public/assets/*.gif
+# /public/assets/*.webp
